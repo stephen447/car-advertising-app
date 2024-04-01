@@ -1,0 +1,46 @@
+.createAdvertForm{
+    text-align: center;
+}
+.createAdvertForm__inputDiv{
+}
+.createAdvertForm__inputDiv select{
+    border-color: rgba(240, 248, 255, 0);
+    color: rgb(18, 224, 148);
+    background-color: rgba(0, 0, 0, 0.138);
+    text-align: center;
+    outline-color: invert;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 30%;
+    margin: 3%;
+}
+.createAdvertForm__inputDiv input{
+    border-color: rgba(240, 248, 255, 0);
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.138);
+    color: rgb(18, 224, 148);
+    text-align: center;
+    outline-color: invert;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 30%;
+    margin: 3%;
+}
+.createAdvertForm__inputDiv label{
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+.createAdvertForm__button{
+    border-color: rgba(240, 248, 255, 0);
+    color: rgb(18, 224, 148);
+    background-color: rgba(0, 0, 0, 0.138);
+    text-align: center;
+    outline-color: invert;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 30%;
+    margin: 3%;
+}

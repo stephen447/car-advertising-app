@@ -1,0 +1,9 @@
+.carAdvertisement{
+    background-color: rgb(18, 224, 148);
+    color: rgb(0, 74, 47);
+    text-align: center;
+    width: 60%;
+    border-radius: 10px;
+    align-self: center;
+    margin: auto;
+}

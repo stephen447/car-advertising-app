@@ -1,0 +1,7 @@
+.footer{
+    display: flex;
+}
+.footer__column{
+    width: 50%;
+    text-align: center;
+}

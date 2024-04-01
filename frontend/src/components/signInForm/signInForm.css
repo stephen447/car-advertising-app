@@ -1,0 +1,41 @@
+.input{
+    background-color: rgb(18, 224, 148);
+    width: 15%;
+    display: inline-block;
+    margin:1%;
+    border: 0px;
+    border-radius: 5px;
+    color:rgb(0, 74, 47);
+    padding: 1%;
+}
+.signIn{
+    text-align: center;
+}
+.label{
+    width: 15%;
+    display: inline-block;
+    margin:1%;
+    
+}
+.signInButton{
+    background-color: rgb(18, 224, 148);
+    color:rgb(0, 74, 47);
+    padding:1%;
+    border: 0px;
+    border-radius: 5px;
+    width: 15%;
+    display: inline-block;
+}
+
+.signInButton:hover{
+    background-color: rgba(18, 224, 148, 0.656);
+    color:rgb(0, 74, 47);
+    
+}
+.register{
+    margin:10%;
+    background-color: rgba(18, 224, 148, 0.656);
+    color:rgb(0, 74, 47);
+    padding: 2%;
+    border-radius: 10px;
+}

@@ -1,0 +1,33 @@
+.userInfoContainer{
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: fit-content;
+}
+.userInfo{
+    display: flex;
+    max-width: max-content;
+    
+    
+}
+.userAttribute{
+    min-width: 170px;
+    
+    
+}
+.userAttributeValue{
+    text-align: center;
+    
+    
+}
+.profilePageTitle{
+    text-align: center;
+    
+}
+.editContainer{
+    text-align: center;
+}
+.editContainer{
+    display: block;
+}
+

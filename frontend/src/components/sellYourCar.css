@@ -1,0 +1,28 @@
+.sellYourCar{
+    background-color: rgb(18, 224, 148);
+    color:rgb(0, 74, 47);
+    display: flex;
+    border-radius: 10px;
+}
+.sellYourCarImage{
+    width: 30%;
+    margin: 10%;
+    border-radius: 10px;
+}
+.sellYourCarText{
+    margin: auto;
+    text-align: center;
+}
+.sellYourCarButton{
+    border-color: rgba(240, 248, 255, 0);
+    color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.138);
+    text-align: center;
+    outline-color: invert;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 6%;
+}
+.sellYourCarButton:hover{
+    background-color: rgba(0, 0, 0, 0.397);
+}

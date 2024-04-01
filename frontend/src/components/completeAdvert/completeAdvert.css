@@ -1,0 +1,40 @@
+.advert-container {
+    justify-content: space-between; /* Align items with space between them */
+  }
+  
+  .advert-title {
+    display: flex; /* Nested flex container */
+    align-items: center; /* Align items vertically */
+    width: 100%;
+  }
+  
+  .advert-price {
+    margin-left: auto; /* Push the advert price to the right */
+    margin-right:5%
+  }
+  .advert-details{
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    background-color: rgb(0, 61, 39);
+    margin: 5%;
+    border-radius: 10px;
+
+    
+  }
+  .advert-detail{
+    width: 20%;
+
+  }
+
+  .advert-details-title{
+    text-align: center;
+  }
+  .advert-description{
+    width: 84%;
+    background-color: rgb(0, 61, 39);
+    margin: 5%;
+    border-radius: 10px;
+    text-align: center;
+    padding: 3%;
+  }

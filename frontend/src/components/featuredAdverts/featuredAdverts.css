@@ -1,0 +1,8 @@
+.featureAdvertsHolder__title{
+    text-align: center;
+}
+.featureAdvertsHolder__adverts {
+    display: flex;
+    overflow: hidden;
+}
+
