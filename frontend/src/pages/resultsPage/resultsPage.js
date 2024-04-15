@@ -5,6 +5,9 @@ import { useLocation } from 'react-router-dom';
 
 import NavBar from "../../components/navBar/navBar"
 import BasicAdvert from '../../components/basicAdvert/basicAdvert';
+import BackButton from '../../components/backButton/backButton';
+
+import './resultsPage.css'
 
 const ResultsPage = () => {
   const location = useLocation();
@@ -29,20 +32,27 @@ const ResultsPage = () => {
 
   return (
     <div>
-        <NavBar />
-        <h1>Search Results</h1>
-      {/* Display search results */}
-      {results.map((result) => (
-            <BasicAdvert
-            manufacturer={result.make}
-            model={result.model}
-            year={result.year}
-            price={result.price}
-            color={result.color}
-            mileage={result.mileage}
-            id={result.id}
-        />
-      ))}
+      <NavBar />
+      <h1>Search Results</h1>
+      {results.length === 0 ? (
+        <div className='noResultsContainer'>
+          <h2>No search results found.</h2>
+          <BackButton/>
+        </div>
+      ) : (
+          // Display search results
+          results.map((result) => (
+              <BasicAdvert
+                  manufacturer={result.make}
+                  model={result.model}
+                  year={result.year}
+                  price={result.price}
+                  color={result.color}
+                  mileage={result.mileage}
+                  id={result.id}
+              />
+          ))
+      )}
     </div>
   );
 };

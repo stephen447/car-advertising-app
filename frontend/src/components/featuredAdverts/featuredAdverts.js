@@ -28,6 +28,7 @@ export default function FeaturedAdverts () {
             
             <div className="featureAdvertsHolder__adverts">
                 {FeaturedAdverts.map((ad, index) => (
+                    console.log("ad",ad),
                     <FeaturedAdvert
                         key={index}
                         manufacturer={ad.make}

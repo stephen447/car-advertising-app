@@ -44,7 +44,7 @@ const CreateAdvertPage = () => {
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-    setFormData({ ...formData, 'images': files[0] });
+    setFormData({ ...formData, 'images': files });
   };
 
   /**
@@ -112,6 +112,7 @@ const CreateAdvertPage = () => {
     } catch (error) {
       console.error('Error creating advertisement:', error);
     }
+    // Need to redirect
   };
 
   /**

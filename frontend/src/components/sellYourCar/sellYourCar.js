@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./sellYourCar.css"
-import image from"../media/images/testImage.jpg"
+import image from"../../media/images/car-icon.png"
 import { useNavigate } from "react-router-dom";
 
 export default function SellYourCar () {

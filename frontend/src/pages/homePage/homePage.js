@@ -2,7 +2,7 @@
 import NavBar from "../../components/navBar/navBar"
 import BasicSearchForm from "../../components/basicSearchForm/basicSearchForm"
 import FeaturedAdverts from "../../components/featuredAdverts/featuredAdverts"
-import SellYourCar from "../../components/sellYourCar"
+import SellYourCar from "../../components/sellYourCar/sellYourCar"
 import Footer from "../../components/footer/footer"
 // Styling imports
 import "./homePage.css"
