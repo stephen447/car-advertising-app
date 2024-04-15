@@ -1,5 +1,6 @@
 import React from 'react';
 import "./completeAdvert.css" // CSS file
+import ImageSlider from '../imageSlider/imageSlider';
 
 const CompleteAdvert = (advertisement) => {
     advertisement = advertisement.advertisement;
@@ -10,9 +11,7 @@ const CompleteAdvert = (advertisement) => {
             <h1 className='advert-price'>€{advertisement.price}</h1>
         </div>
         <div className='advert-picture'> {/* Advert pictures */} 
-          {advertisement.images.map((image, index) => (
-            <img key={index} src={`data:image/png;base64,${image.image_data}`} style={{ maxWidth: '40%', height: 'auto' }} alt={`Image ${index}`} />
-          ))}
+          <ImageSlider images={advertisement.images} />
         </div>
         <h2 className='advert-details-title'>Details</h2> {/* Advert details */} 
         <div className='advert-details'>
