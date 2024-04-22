@@ -1,6 +1,13 @@
-import React from 'react';
+import React from "react";
 
-const CreateAccountFormElement = ({ label, id, value, onChange, type = 'text', required = false }) => {
+const CreateAccountFormElement = ({
+  label,
+  id,
+  value,
+  onChange,
+  type = "text",
+  required = false,
+}) => {
   return (
     <div className="form-group">
       <label htmlFor={id}>{label}:</label>

@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import axios from 'axios';
-import CompleteAdvert from '../../components/completeAdvert/completeAdvert'
-import './advertPage.css'
+import React, { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import CompleteAdvert from "../../components/completeAdvert/completeAdvert";
+import "./advertPage.css";
 
 function AdvertPage() {
   const { id } = useParams();
@@ -11,11 +11,13 @@ function AdvertPage() {
   useEffect(() => {
     const fetchAdvertisement = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/adverts/advert/${id}`);
+        const response = await axios.get(
+          `http://localhost:8000/adverts/advert/${id}`
+        );
         console.log(response.data);
         setAdvertisement(response.data);
       } catch (error) {
-        console.error('Error fetching advertisement:', error);
+        console.error("Error fetching advertisement:", error);
       }
     };
 
@@ -26,9 +28,7 @@ function AdvertPage() {
     return <div>Loading...</div>;
   }
 
-  return (
-    <CompleteAdvert advertisement={advertisement} />
-  );
+  return <CompleteAdvert advertisement={advertisement} />;
 }
 
 export default AdvertPage;

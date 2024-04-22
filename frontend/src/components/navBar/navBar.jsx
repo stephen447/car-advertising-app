@@ -11,9 +11,9 @@ import axios from "axios";
  * @returns returns the value of the cookie
  */
 function getCookie(name) {
-    const value = `; ${document.cookie}`;
-    const parts = value.split(`; ${name}=`);
-    if (parts.length === 2) return parts.pop().split(';').shift();
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(";").shift();
 }
 
 /**
@@ -21,62 +21,62 @@ function getCookie(name) {
  * @returns the username of the user
  */
 const getUsername = async () => {
-    try {
-        // Get CSRF cookie
-        let csrfToken = getCookie('csrftoken');
-        // Make request to get username
-        const response = await axios.get(
-            'http://localhost:8000/users/getUsername/',
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRFToken': csrfToken,
-                },
-                withCredentials: true,
-            }
-        );
-        return response.data;
-    } catch (error) {
-        console.error('Error getting username:', error);
-        return null;
-    }
+  try {
+    // Get CSRF cookie
+    let csrfToken = getCookie("csrftoken");
+    // Make request to get username
+    const response = await axios.get(
+      "http://localhost:8000/users/getUsername/",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "X-CSRFToken": csrfToken,
+        },
+        withCredentials: true,
+      }
+    );
+    return response.data;
+  } catch (error) {
+    console.error("Error getting username:", error);
+    return null;
+  }
 };
 
 export default function NavBar() {
-    const [username, setUsername] = useState('');
+  const [username, setUsername] = useState("");
 
-    useEffect(() => {
-        // Get the username of a user if a user is logged in
-        const fetchUsername = async () => {
-            const user = await getUsername();
-            if (user) {
-                setUsername(user.username);
-            }
-        };
+  useEffect(() => {
+    // Get the username of a user if a user is logged in
+    const fetchUsername = async () => {
+      const user = await getUsername();
+      if (user) {
+        setUsername(user.username);
+      }
+    };
 
-        fetchUsername();
-    }, []);
+    fetchUsername();
+  }, []);
 
-    return (
-        <>
-            <nav className="navbar">
-                <div className="navbar__container">
-                    <a href="/home">Car Change</a>
-                </div>
-                <div className="navbar__container">
-                    <a href="/search">Buy</a>
-                </div>
-                
-                <div className="navbar__container">
-                    <a href="/placeadvert">Sell</a>
-                </div>
-                <div className="navbar__container">
-                    <a href="/signin">Sign-In</a>
-                </div>
-                <div className="navbar__container">
-                    <a href="/profile">{username}</a>
-                </div>
-            </nav>
-        </>
-    );
+  return (
+    <>
+      <nav className="navbar">
+        <div className="navbar__container">
+          <a href="/home">Car Change</a>
+        </div>
+        <div className="navbar__container">
+          <a href="/search">Buy</a>
+        </div>
+
+        <div className="navbar__container">
+          <a href="/placeadvert">Sell</a>
+        </div>
+        <div className="navbar__container">
+          <a href="/signin">Sign-In</a>
+        </div>
+        <div className="navbar__container">
+          <a href="/profile">{username}</a>
+        </div>
+      </nav>
+    </>
+  );
 }
