@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import "./completeAdvert.css"; // CSS file
 import ImageSlider from "../imageSlider/imageSlider";
 
@@ -15,9 +16,13 @@ const CompleteAdvert = (advertisement) => {
         <h1 className="advert-price">€{advertisement.price}</h1>
       </div>
       <div className="advert-picture">
-        {" "}
-        {/* Advert pictures */}
-        <ImageSlider images={advertisement.images} />
+        {advertisement.images.length > 1 ? (
+          // Render content if there are more than 1 images
+          <ImageSlider images={advertisement.images} />
+        ) : (
+          // Render alternative content if there is only 1 or no image
+          <div>{/* Your alternative content here */}</div>
+        )}
       </div>
       <h2 className="advert-details-title">Details</h2> {/* Advert details */}
       <div className="advert-details">

@@ -15,7 +15,7 @@ export default function FeaturedAdverts() {
     const getFeaturedAdverts = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/adverts/featuredadverts/"
+          process.env.REACT_APP_API_BASE_URL + "adverts/featuredadverts/"
         );
         setFeaturedAdverts(response.data);
       } catch (error) {

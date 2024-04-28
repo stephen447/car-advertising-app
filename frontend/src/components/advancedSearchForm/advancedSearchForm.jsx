@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdvancedSearchForm() {
+  const x = process.env.REACT_APP_API_BASE_URL;
+  console.log("base url", x);
   const navigate = useNavigate(); // Use useNavigate to redirect to a new page
   // State variables
   // Options for the manufacturers and models in the form
@@ -53,7 +55,7 @@ export default function AdvancedSearchForm() {
     const getManufacturers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/adverts/manufacturers/"
+          process.env.REACT_APP_API_BASE_URL + "adverts/manufacturers/"
         );
         setManufacturerOptions(response.data);
         setManufacturer("");
@@ -72,7 +74,8 @@ export default function AdvancedSearchForm() {
       try {
         if (manufacturer !== undefined) {
           const response = await axios.get(
-            `http://localhost:8000/adverts/models?manufacturer=${manufacturer}`
+            process.env.REACT_APP_API_BASE_URL +
+              `adverts/models?manufacturer=${manufacturer}`
           );
           const newModelOptions = response.data;
           setModelOptions(newModelOptions);

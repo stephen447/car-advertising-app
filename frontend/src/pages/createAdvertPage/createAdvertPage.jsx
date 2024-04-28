@@ -3,6 +3,8 @@ import "./createAdvertPage.css";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NavBar from "../../components/navBar/navBar";
+import "../../components/dragNDrop/dragNDrop";
+import DragNDrop from "../../components/dragNDrop/dragNDrop";
 
 /**
  *
@@ -24,6 +26,7 @@ const CreateAdvertPage = () => {
   const [manufacturerOptions, setManufacturerOptions] = useState([]);
   const [modelOptions, setModelOptions] = useState([]);
   const [carData, setCarData] = useState([]);
+  const [creationSuccess, setCreationSuccess] = useState(true);
   const [formData, setFormData] = useState({
     description: "",
     make: "",
@@ -120,7 +123,7 @@ const CreateAdvertPage = () => {
     console.log(formData);
     try {
       const response = await axios.post(
-        "http://localhost:8000/adverts/advert/",
+        process.env.REACT_APP_API_BASE_URL + "adverts/advert/",
         formData,
         {
           headers: {
@@ -130,9 +133,18 @@ const CreateAdvertPage = () => {
           withCredentials: true,
         }
       );
-      console.log("Advertisement created:", response.data);
+      if (response.status === 201) {
+        // Redirect to the home page
+        console.log("Response: ", response);
+        //redirect to advert
+        window.location.href =
+          process.env.REACT_APP_API_BASE_URL +
+          "advertisement/" +
+          response.data.id;
+      }
     } catch (error) {
       console.error("Error creating advertisement:", error);
+      setCreationSuccess(false);
     }
     // Need to redirect
   };
@@ -298,10 +310,18 @@ const CreateAdvertPage = () => {
         <div>
           <input type="file" multiple onChange={handleImageChange} />
         </div>
+        <DragNDrop />
 
         <button className="createAdvertForm__button" type="submit">
           Create Advertisement
         </button>
+        {!creationSuccess ? (
+          <div className="success">
+            <p>Failed to create advert.</p>
+          </div>
+        ) : (
+          <></>
+        )}
       </form>
     </div>
   );

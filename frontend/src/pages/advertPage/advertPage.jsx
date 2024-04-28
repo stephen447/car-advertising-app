@@ -12,7 +12,7 @@ function AdvertPage() {
     const fetchAdvertisement = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:8000/adverts/advert/${id}`
+          process.env.REACT_APP_API_BASE_URL + `adverts/advert/${id}`
         );
         console.log(response.data);
         setAdvertisement(response.data);

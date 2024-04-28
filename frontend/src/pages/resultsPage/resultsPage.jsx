@@ -22,9 +22,10 @@ const ResultsPage = () => {
       try {
         const searchParams = new URLSearchParams(location.search);
         const response = await axios.get(
-          "http://localhost:8000/adverts/search",
+          process.env.REACT_APP_API_BASE_URL + "adverts/search",
           { params: searchParams }
         );
+        console.log("adverts", response);
         setResults(response.data);
       } catch (error) {
         console.error("Error fetching results:", error);

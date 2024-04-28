@@ -32,7 +32,7 @@ const ProfilePage = () => {
       // Get CSRF cookie
       let csrfToken = getCookie("csrftoken");
       // Make request to logout user
-      await axios.get("http://localhost:8000/users/logout/", {
+      await axios.get(process.env.REACT_APP_API_BASE_URL + "users/logout/", {
         headers: {
           "Content-Type": "application/json",
           "X-CSRFToken": csrfToken,
@@ -56,13 +56,16 @@ const ProfilePage = () => {
         // Get CSRF cookie
         const csrfToken = getCookie("csrftoken");
         // Make request to get profile info
-        response = await axios.get("http://localhost:8000/users/profile/", {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken,
-          },
-          withCredentials: true,
-        });
+        response = await axios.get(
+          process.env.REACT_APP_API_BASE_URL + "users/profile/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": csrfToken,
+            },
+            withCredentials: true,
+          }
+        );
         setProfileInfo(response.data); // Set the info from response
       } catch (error) {
         console.log(error);
@@ -95,7 +98,7 @@ const ProfilePage = () => {
     try {
       const csrfToken = getCookie("csrftoken");
       const response = await axios.patch(
-        "http://localhost:8000/users/register/",
+        process.env.REACT_APP_API_BASE_URL + "users/register/",
         profileInfo, // Update this with the edited information
         {
           headers: {
@@ -125,13 +128,16 @@ const ProfilePage = () => {
       //handleLogout(e);
       try {
         const csrfToken = getCookie("csrftoken");
-        await axios.delete("http://localhost:8000/users/register/", {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken,
-          },
-          withCredentials: true,
-        });
+        await axios.delete(
+          process.env.REACT_APP_API_BASE_URL + "users/register/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRFToken": csrfToken,
+            },
+            withCredentials: true,
+          }
+        );
         // Optionally, you can redirect the user to the homepage or perform any other action after deletion
         navigate("/");
       } catch (error) {

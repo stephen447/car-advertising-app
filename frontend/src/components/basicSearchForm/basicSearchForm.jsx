@@ -26,7 +26,7 @@ export default function BasicSearchForm() {
     const getManufacturers = async () => {
       try {
         const response = await axios.get(
-          "http://localhost:8000/adverts/manufacturers/"
+          process.env.REACT_APP_API_BASE_URL + "adverts/manufacturers/"
         );
         setManufacturerOptions(response.data);
         setManufacturer("");
@@ -45,7 +45,8 @@ export default function BasicSearchForm() {
       try {
         if (manufacturer !== undefined) {
           const response = await axios.get(
-            `http://localhost:8000/adverts/models?manufacturer=${manufacturer}`
+            process.env.REACT_APP_API_BASE_URL +
+              `adverts/models?manufacturer=${manufacturer}`
           );
           const newModelOptions = response.data;
           setModelOptions(newModelOptions);

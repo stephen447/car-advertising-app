@@ -26,7 +26,7 @@ const getUsername = async () => {
     let csrfToken = getCookie("csrftoken");
     // Make request to get username
     const response = await axios.get(
-      "http://localhost:8000/users/getUsername/",
+      process.env.REACT_APP_API_BASE_URL + "users/getUsername/",
       {
         headers: {
           "Content-Type": "application/json",

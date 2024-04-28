@@ -42,7 +42,7 @@ export default function CreateAccountPage() {
       let csrfToken = getCookie("csrftoken");
       // Make request to login user
       await axios.post(
-        "http://localhost:8000/users/register/",
+        process.env.REACT_APP_API_BASE_URL + "users/register/",
         {
           email: email,
           password: password,

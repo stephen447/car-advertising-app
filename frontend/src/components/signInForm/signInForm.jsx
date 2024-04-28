@@ -18,6 +18,7 @@ export default function SignInForm() {
   // State to manage input values
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(true);
 
   /**
    * Sends request to the backend to log in a user
@@ -29,8 +30,8 @@ export default function SignInForm() {
       // Get CSRF cookie
       let csrfToken = getCookie("csrftoken");
       // Make request to login user
-      await axios.post(
-        "http://localhost:8000/users/login/",
+      const response = await axios.post(
+        process.env.REACT_APP_API_BASE_URL + "users/login/",
         {
           username: email,
           password: password,
@@ -43,11 +44,16 @@ export default function SignInForm() {
           withCredentials: true,
         }
       );
+      if (response.status === 200) {
+        // Redirect to the home page
+        window.location.replace("http://localhost:3000/profile");
+      }
     } catch (error) {
       console.log(error);
+      setLoginSuccess(false);
     }
     // Reload the page to update the task bar to contain the username
-    window.location.reload();
+    //window.location.reload();
   };
   return (
     <div className="signIn">
@@ -74,6 +80,13 @@ export default function SignInForm() {
           <button className="signInButton" type="submit">
             Sign In
           </button>
+          {!loginSuccess ? (
+            <div className="success">
+              <p>Login Unsuccessful. Incorrect Password or Username.</p>
+            </div>
+          ) : (
+            <></>
+          )}
           <br />
         </form>
       </div>
