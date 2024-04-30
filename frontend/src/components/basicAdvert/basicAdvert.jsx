@@ -11,7 +11,7 @@ const BasicAdvert = ({
   color,
   id,
 }) => {
-  //const [coverPicture, setCoverPicture] = useState([]);
+  const [coverPicture, setCoverPicture] = useState([]);
   // useEffect(() => {
   //   const fetchCoverPicture = async () => {
   //     try {
