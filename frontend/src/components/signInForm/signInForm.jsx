@@ -46,7 +46,7 @@ export default function SignInForm() {
       );
       if (response.status === 200) {
         // Redirect to the home page
-        window.location.replace("http://localhost:3000/profile");
+        window.location.replace(process.env.REACT_APP_API_BASE_URL + "profile");
       }
     } catch (error) {
       console.log(error);
