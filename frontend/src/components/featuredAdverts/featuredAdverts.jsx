@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FeaturedAdvert from "../featuredAdvert/featuredAdvert";
 import "./featuredAdverts.css";
-import image from "../../media/images/testImage.jpg";
+// import image from "../../media/images/testImage.jpg";
 import axios from "axios";
 
 export default function FeaturedAdverts() {
@@ -39,7 +39,6 @@ export default function FeaturedAdverts() {
                 model={ad.model}
                 year={ad.year}
                 mileage={ad.mileage}
-                src={image} // Assuming image_url is the key for image URL
               />
             )
           )
