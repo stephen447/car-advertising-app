@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import "./navBar.css";
 import axios from "axios";
 //<div className="navbar__container">
@@ -61,20 +62,19 @@ export default function NavBar() {
     <>
       <nav className="navbar">
         <div className="navbar__container">
-          <a href="/home">Car Change</a>
+          <Link to="/home">Car Change</Link>
         </div>
         <div className="navbar__container">
-          <a href="/search">Buy</a>
-        </div>
-
-        <div className="navbar__container">
-          <a href="/placeadvert">Sell</a>
+          <Link to="/search">Buy</Link>
         </div>
         <div className="navbar__container">
-          <a href="/signin">Sign-In</a>
+          <Link to="/placeadvert">Sell</Link>
         </div>
         <div className="navbar__container">
-          <a href="/profile">{username}</a>
+          <Link to="/signin">Sign-In</Link>
+        </div>
+        <div className="navbar__container">
+          <Link to="/profile">{username}</Link>
         </div>
       </nav>
     </>

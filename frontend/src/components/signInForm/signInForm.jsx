@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./signInForm.css";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 /**
  * Retrieves the cookie with the given name
@@ -19,6 +20,7 @@ export default function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginSuccess, setLoginSuccess] = useState(true);
+  const navigate = useNavigate(); // Use useNavigate instead
 
   /**
    * Sends request to the backend to log in a user
@@ -46,7 +48,10 @@ export default function SignInForm() {
       );
       if (response.status === 200) {
         // Redirect to the home page
-        window.location.replace(process.env.REACT_APP_API_BASE_URL + "profile");
+        // window.location.replace(
+        //   "https://car-advertising-app-1.onrender.com/" + "profile"
+        // );
+        navigate("/profile");
       }
     } catch (error) {
       console.log(error);
