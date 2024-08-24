@@ -29,9 +29,9 @@ export default function SignInForm() {
     e.preventDefault();
     try {
       // API URL
-      const url = `${process.env.REACT_APP_API_BASE_URL}/user/login/`;
+      const url = `${process.env.REACT_APP_API_BASE_URL}user/login/`;
       // Refresh URL for getting a new token
-      const refreshURL = `${process.env.REACT_APP_API_BASE_URL}/user/refresh/`;
+      const refreshURL = `${process.env.REACT_APP_API_BASE_URL}user/refresh/`;
       // The request options
       const requestOptions = {
         method: "POST",
