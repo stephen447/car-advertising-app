@@ -18,6 +18,7 @@ export default function FeaturedAdverts() {
           process.env.REACT_APP_API_BASE_URL + "adverts/featuredadverts/"
         );
         setFeaturedAdverts(response.data);
+        console.log(response.data);
       } catch (error) {
         console.log(error);
       }
@@ -31,7 +32,8 @@ export default function FeaturedAdverts() {
       <div className="featureAdvertsHolder__adverts">
         {FeaturedAdverts.map((ad, index) => (
           <FeaturedAdvert
-            key={index}
+            key={ad.id}
+            id={ad.id}
             manufacturer={ad.make}
             model={ad.model}
             year={ad.year}

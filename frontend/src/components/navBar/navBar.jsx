@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navBar.css";
+import image from "../../media/images/car-icon.png";
 import { apiRequest } from "../../request";
 
 /**
@@ -61,7 +62,9 @@ export default function NavBar() {
     <>
       <nav className="navbar">
         <div className="navbar__container">
-          <Link to="/home">Car Change</Link>
+          <Link to="/home">
+            <img className="home__image" src={image}></img>
+          </Link>
         </div>
         <div className="navbar__container">
           <Link to="/search">Buy</Link>

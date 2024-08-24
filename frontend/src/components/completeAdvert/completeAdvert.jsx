@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
+import NavBar from "../navBar/navBar";
 import "./completeAdvert.css"; // CSS file
 import ImageSlider from "../imageSlider/imageSlider";
 
@@ -7,6 +7,7 @@ const CompleteAdvert = (advertisement) => {
   advertisement = advertisement.advertisement;
   return (
     <div className="advert-container">
+      <NavBar />
       <div className="advert-title">
         {" "}
         {/* Advert title*/}
