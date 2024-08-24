@@ -37,7 +37,6 @@ export default function CreateAccountPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(password);
       // Get CSRF cookie
       let csrfToken = getCookie("csrftoken");
       // Make request to login user
@@ -46,10 +45,6 @@ export default function CreateAccountPage() {
         {
           email: email,
           password: password,
-          date_of_birth: DOB,
-          first_name: firstName,
-          last_name: surname,
-          phone_number: phoneNumber,
           username: username,
         },
         {
@@ -101,46 +96,6 @@ export default function CreateAccountPage() {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-          <div className="name-group">
-            <CreateAccountFormElement
-              label="First Name"
-              id="firstName"
-              value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
-              required
-            />
-            <div className="form-group">
-              <CreateAccountFormElement
-                label="Surname"
-                id="surname"
-                className="input"
-                value={surname}
-                onChange={(e) => setSurname(e.target.value)}
-                required
-              />
-            </div>
-          </div>
-          <div className="form-group">
-            <CreateAccountFormElement
-              label="Phone Number"
-              id="phoneNumber"
-              className="input"
-              value={phoneNumber}
-              onChange={(e) => setPhoneNumber(e.target.value)}
-              required
-            />
-          </div>
-          <div className="form-group">
-            <CreateAccountFormElement
-              label="Date of Birth"
-              id="DOB"
-              className="input"
-              type="date"
-              value={DOB}
-              onChange={(e) => setDOB(e.target.value)}
               required
             />
           </div>

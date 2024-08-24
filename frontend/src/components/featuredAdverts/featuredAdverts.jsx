@@ -29,20 +29,15 @@ export default function FeaturedAdverts() {
       <h1 className="featureAdvertsHolder__title"> Featured Ads</h1>
 
       <div className="featureAdvertsHolder__adverts">
-        {FeaturedAdverts.map(
-          (ad, index) => (
-            console.log("ad", ad),
-            (
-              <FeaturedAdvert
-                key={index}
-                manufacturer={ad.make}
-                model={ad.model}
-                year={ad.year}
-                mileage={ad.mileage}
-              />
-            )
-          )
-        )}
+        {FeaturedAdverts.map((ad, index) => (
+          <FeaturedAdvert
+            key={index}
+            manufacturer={ad.make}
+            model={ad.model}
+            year={ad.year}
+            mileage={ad.mileage}
+          />
+        ))}
       </div>
     </div>
   );

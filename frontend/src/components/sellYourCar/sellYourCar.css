@@ -4,8 +4,7 @@
     display: flex;
     border-radius: 10px;
     width: 90%;
-    border-left: auto;
-    border-right: auto;
+    margin: 0 auto;  /* This centers the div horizontally */
 }
 .sellYourCarImage{
     width: 30%;

@@ -5,7 +5,6 @@ import axios from "axios";
 
 export default function AdvancedSearchForm() {
   const x = process.env.REACT_APP_API_BASE_URL;
-  console.log("base url", x);
   const navigate = useNavigate(); // Use useNavigate to redirect to a new page
   // State variables
   // Options for the manufacturers and models in the form
@@ -151,7 +150,6 @@ export default function AdvancedSearchForm() {
    * @param {Event} e
    */
   const handleModelChange = (e) => {
-    console.log("Model changed");
     e.preventDefault();
     setModel(e.target.value);
   };

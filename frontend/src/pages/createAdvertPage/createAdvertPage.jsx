@@ -1,10 +1,10 @@
 import "./createAdvertPage.css";
 // CreateAdvertForm.js
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import NavBar from "../../components/navBar/navBar";
 import "../../components/dragNDrop/dragNDrop";
 import DragNDrop from "../../components/dragNDrop/dragNDrop";
+import { apiRequest } from "../../request";
 
 /**
  *
@@ -94,7 +94,6 @@ const CreateAdvertPage = () => {
    */
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log("Form data: ", formData);
   };
 
   /**
@@ -119,34 +118,31 @@ const CreateAdvertPage = () => {
    */
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let csrfToken = getCookie("csrftoken");
-    console.log(formData);
+
     try {
-      const response = await axios.post(
+      const response = await apiRequest(
         process.env.REACT_APP_API_BASE_URL + "adverts/advert/",
-        formData,
+        process.env.REACT_APP_API_BASE_URL + "user/token/refresh/", // Refresh token URL
         {
+          method: "POST",
           headers: {
             "Content-Type": "multipart/form-data",
-            "X-CSRFToken": csrfToken,
           },
+          data: formData, // Attach the form data
           withCredentials: true,
         }
       );
+
       if (response.status === 201) {
-        // Redirect to the home page
         console.log("Response: ", response);
-        //redirect to advert
+        // Redirect to the advertisement page
         window.location.href =
-          process.env.REACT_APP_API_BASE_URL +
-          "advertisement/" +
-          response.data.id;
+          process.env.REACT_APP_BASE_URL + "advertisement/" + response.data.id;
       }
     } catch (error) {
       console.error("Error creating advertisement:", error);
       setCreationSuccess(false);
     }
-    // Need to redirect
   };
 
   /**

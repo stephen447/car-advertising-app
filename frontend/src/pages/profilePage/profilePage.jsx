@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button } from "@mui/material";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+import { apiRequest } from "../../request";
 import NavBar from "../../components/navBar/navBar";
 import "./profilePage.css";
 
@@ -28,20 +28,10 @@ const ProfilePage = () => {
    */
   const handleLogout = async (e) => {
     e.preventDefault();
-    try {
-      // Get CSRF cookie
-      let csrfToken = getCookie("csrftoken");
-      // Make request to logout user
-      await axios.get(process.env.REACT_APP_API_BASE_URL + "users/logout/", {
-        headers: {
-          "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken,
-        },
-        withCredentials: true,
-      });
-    } catch (error) {
-      console.log(error);
-    }
+    // Delete the variables in local storage
+    localStorage.removeItem("accessToken");
+    localStorage.removeItem("refreshToken");
+    localStorage.removeItem("profileInfo");
     // Need to update the navbar and redirect to homepage
     navigate("/"); // Use navigate instead of history.push
   };
@@ -51,26 +41,33 @@ const ProfilePage = () => {
    */
   useEffect(() => {
     const fetchProfileInfo = async () => {
-      let response;
       try {
-        // Get CSRF cookie
-        const csrfToken = getCookie("csrftoken");
-        // Make request to get profile info
-        response = await axios.get(
-          process.env.REACT_APP_API_BASE_URL + "users/profile/",
+        // attemp to get the profile info from local storage
+        if (localStorage.getItem("profileInfo")) {
+          setProfileInfo(JSON.parse(localStorage.getItem("profileInfo")));
+          return;
+        }
+        // Make request to get profile info using apiRequest
+        const response = await apiRequest(
+          process.env.REACT_APP_API_BASE_URL + "user/data/",
+          process.env.REACT_APP_API_BASE_URL + "user/token/refresh/",
           {
+            method: "GET",
             headers: {
               "Content-Type": "application/json",
-              "X-CSRFToken": csrfToken,
             },
-            withCredentials: true,
           }
         );
-        setProfileInfo(response.data); // Set the info from response
+
+        // Set the profile info from response
+        setProfileInfo(response.data);
+        // Save the profile info to local storage
+        localStorage.setItem("profileInfo", JSON.stringify(response.data));
       } catch (error) {
-        console.log(error);
+        console.log("Error fetching profile info:", error);
       }
     };
+
     // Call fetchProfileInfo
     fetchProfileInfo();
   }, []);
@@ -291,13 +288,13 @@ const ProfilePage = () => {
                   </div>
                 )}
               </div>
-              <Button
+              {/* <Button
                 className="profileButtton"
                 onClick={handleEdit}
                 style={style}
               >
                 Edit
-              </Button>
+              </Button> */}
               <Button
                 className="profileButtton"
                 onClick={handleLogout}
@@ -305,13 +302,13 @@ const ProfilePage = () => {
               >
                 Logout
               </Button>
-              <Button
+              {/* <Button
                 className="profileButtton"
                 onClick={handleDelete}
                 style={style}
               >
                 Delete
-              </Button>
+              </Button> */}
             </>
           )}
         </div>

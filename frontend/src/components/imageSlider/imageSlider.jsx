@@ -6,12 +6,10 @@ const ImageSlider = ({ images }) => {
 
   const nextSlide = () => {
     setCurrentSlide((currentSlide + 1) % images.length);
-    console.log(currentSlide);
   };
 
   const prevSlide = () => {
     setCurrentSlide((currentSlide - 1 + images.length) % images.length);
-    console.log(currentSlide);
   };
 
   return (

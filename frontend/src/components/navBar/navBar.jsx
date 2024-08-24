@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./navBar.css";
-import axios from "axios";
-//<div className="navbar__container">
-//    <a href="/dealers">Dealers</a>
-//</div>
+import { apiRequest } from "../../request";
 
 /**
  * This function retrieves a cookie
@@ -23,20 +20,22 @@ function getCookie(name) {
  */
 const getUsername = async () => {
   try {
-    // Get CSRF cookie
-    let csrfToken = getCookie("csrftoken");
-    // Make request to get username
-    const response = await axios.get(
-      process.env.REACT_APP_API_BASE_URL + "users/getUsername/",
+    if (localStorage.getItem("profileInfo")) {
+      const profileInfo = JSON.parse(localStorage.getItem("profileInfo"));
+      return profileInfo.username;
+    }
+    // Make request to get profile info using apiRequest
+    const response = await apiRequest(
+      process.env.REACT_APP_API_BASE_URL + "user/data/",
+      process.env.REACT_APP_API_BASE_URL + "user/token/refresh/",
       {
+        method: "GET",
         headers: {
           "Content-Type": "application/json",
-          "X-CSRFToken": csrfToken,
         },
-        withCredentials: true,
       }
     );
-    return response.data;
+    return response.data.username;
   } catch (error) {
     console.error("Error getting username:", error);
     return null;
@@ -51,7 +50,7 @@ export default function NavBar() {
     const fetchUsername = async () => {
       const user = await getUsername();
       if (user) {
-        setUsername(user.username);
+        setUsername(user);
       }
     };
 

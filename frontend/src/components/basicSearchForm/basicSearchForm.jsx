@@ -50,8 +50,6 @@ export default function BasicSearchForm() {
           );
           const newModelOptions = response.data;
           setModelOptions(newModelOptions);
-          console.log("made ittt");
-          console.log(newModelOptions);
           setDisableModeloptions(newModelOptions.length === 0);
         }
       } catch (error) {

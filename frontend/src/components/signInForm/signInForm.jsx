@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import "./signInForm.css";
-import axios from "axios";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+import { apiRequest } from "../../request";
 /**
  * Retrieves the cookie with the given name
  * @param {*} name - name of the cookie
@@ -29,36 +28,36 @@ export default function SignInForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Get CSRF cookie
-      let csrfToken = getCookie("csrftoken");
-      // Make request to login user
-      const response = await axios.post(
-        process.env.REACT_APP_API_BASE_URL + "users/login/",
-        {
+      // API URL
+      const url = `${process.env.REACT_APP_API_BASE_URL}/user/login/`;
+      // Refresh URL for getting a new token
+      const refreshURL = `${process.env.REACT_APP_API_BASE_URL}/user/refresh/`;
+      // The request options
+      const requestOptions = {
+        method: "POST",
+        data: {
           username: email,
           password: password,
         },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken,
-          },
-          withCredentials: true,
-        }
-      );
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // Ensure cookies are sent with the request
+      };
+
+      // Use the apiRequest function to log the user in
+      const response = await apiRequest(url, refreshURL, requestOptions);
       if (response.status === 200) {
         // Redirect to the home page
-        // window.location.replace(
-        //   "https://car-advertising-app-1.onrender.com/" + "profile"
-        // );
+        localStorage.setItem("accessToken", response.data.access);
+        localStorage.setItem("refreshToken", response.data.refresh);
         navigate("/profile");
       }
     } catch (error) {
-      console.log(error);
+      console.error("Login failed:", error);
+      // Handle errors, display error messages, or perform any additional actions
       setLoginSuccess(false);
     }
-    // Reload the page to update the task bar to contain the username
-    //window.location.reload();
   };
   return (
     <div className="signIn">
