@@ -7,6 +7,9 @@
     align-items: center; /* Align items vertically */
     width: 100%;
   }
+  .complete-advert__button--back{
+    max-width: 10%;
+  }
   
   .advert-price {
     margin-left: auto; /* Push the advert price to the right */
@@ -21,6 +24,10 @@
     border-radius: 10px;
 
     
+  }
+  .complete-advert__header{
+    text-align: center;
+    justify-content: center;
   }
   .advert-detail{
     width: 20%;

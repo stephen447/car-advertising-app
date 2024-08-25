@@ -11,13 +11,19 @@ const CompleteAdvert = (advertisement) => {
       <div className="advert-title">
         {" "}
         {/* Advert title*/}
-        <h1>
+        <button
+          className="backButton complete-advert__button--back"
+          onClick={() => window.history.back()}
+        >
+          Back
+        </button>
+        <h1 className="complete-advert__header">
           {advertisement.make} {advertisement.model} ({advertisement.year})
         </h1>
         <h1 className="advert-price">€{advertisement.price}</h1>
       </div>
       <div className="advert-picture">
-        {advertisement.images.length > 1 ? (
+        {advertisement.images.length > 0 ? (
           // Render content if there are more than 1 images
           <ImageSlider images={advertisement.images} />
         ) : (

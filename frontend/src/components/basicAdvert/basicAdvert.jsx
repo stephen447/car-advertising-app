@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./basicAdvert.css"; // CSS file
+import axios from "axios";
 
 const BasicAdvert = ({
   manufacturer,
@@ -10,21 +11,24 @@ const BasicAdvert = ({
   color,
   id,
 }) => {
-  const [coverPicture, setCoverPicture] = useState([]);
-  // useEffect(() => {
-  //   const fetchCoverPicture = async () => {
-  //     try {
-  //       const response = await axios.get(
-  //         process.env.REACT_APP_API_BASE_URL + `adverts/advert/${id}`
-  //       );
-  //       setCoverPicture(response.data.images);
-  //     } catch (error) {
-  //       console.error("Error fetching cover photo:", error);
-  //     }
-  //   };
-
-  //   fetchCoverPicture();
-  // }, []);
+  const [coverPhoto, setCoverPhoto] = useState(null);
+  const getCoverPhoto = async () => {
+    try {
+      const response = await axios.get(
+        process.env.REACT_APP_API_BASE_URL + "adverts/coverPicture/" + id
+      );
+      if (response.status !== 200) {
+        console.error("Error getting cover photo:", response);
+        return;
+      }
+      setCoverPhoto(response.data);
+    } catch (error) {
+      console.error("Error getting cover photo:", error);
+    }
+  };
+  useEffect(() => {
+    getCoverPhoto();
+  }, []);
   return (
     <a href={`/advertisement/${id}`} className="carAdvertLink">
       {" "}
@@ -45,12 +49,16 @@ const BasicAdvert = ({
           <strong>Price:</strong> ${price}
         </p>
         <div>
-          {coverPicture.length > 1 ? (
+          {coverPhoto ? (
             // Render content if there are more than 1 images
             <div>
               <img
-                src={`data:image/png;base64,${coverPicture[0].image_data}`}
-                style={{ maxWidth: "40%", height: "auto" }}
+                src={`data:image/png;base64,${coverPhoto.image_data}`}
+                style={{
+                  maxWidth: "40%",
+                  height: "auto",
+                  borderRadius: "10px",
+                }}
                 alt={`Image ${0}`}
               />
             </div>
