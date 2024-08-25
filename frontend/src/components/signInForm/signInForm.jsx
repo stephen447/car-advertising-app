@@ -3,6 +3,7 @@ import "./signInForm.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { apiRequest } from "../../request";
+
 /**
  * Retrieves the cookie with the given name
  * @param {*} name - name of the cookie
@@ -59,9 +60,48 @@ export default function SignInForm() {
       setLoginSuccess(false);
     }
   };
+
+  const handleDemoSignIn = async () => {
+    //e.preventDefault();
+    try {
+      // API URL
+      const url = `${process.env.REACT_APP_API_BASE_URL}user/login/`;
+      // Refresh URL for getting a new token
+      const refreshURL = `${process.env.REACT_APP_API_BASE_URL}user/refresh/`;
+      // The request options
+      const requestOptions = {
+        method: "POST",
+        data: {
+          username: "demoUser",
+          password: "1234",
+        },
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true, // Ensure cookies are sent with the request
+      };
+
+      // Use the apiRequest function to log the user in
+      const response = await apiRequest(url, refreshURL, requestOptions);
+      if (response.status === 200) {
+        // Redirect to the home page
+        localStorage.setItem("accessToken", response.data.access);
+        localStorage.setItem("refreshToken", response.data.refresh);
+        navigate("/profile");
+      }
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Handle errors, display error messages, or perform any additional actions
+      setLoginSuccess(false);
+    }
+  };
+
   return (
     <div className="signIn">
       <h2>Sign In</h2>
+      <button className="signInButton" onClick={handleDemoSignIn}>
+        Sign In as Demo
+      </button>
       <div>
         <form className="signInForm" onSubmit={handleSubmit}>
           <label className="label">Email:</label>

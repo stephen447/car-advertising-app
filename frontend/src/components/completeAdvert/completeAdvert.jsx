@@ -2,9 +2,25 @@ import React, { useEffect, useState } from "react";
 import NavBar from "../navBar/navBar";
 import "./completeAdvert.css"; // CSS file
 import ImageSlider from "../imageSlider/imageSlider";
+import axios from "axios";
 
 const CompleteAdvert = (advertisement) => {
   advertisement = advertisement.advertisement;
+  // Get the seller info from seller id in advert
+  const [seller, setSeller] = useState({});
+  useEffect(() => {
+    const fetchSeller = async () => {
+      const response = await axios.get(
+        process.env.REACT_APP_API_BASE_URL +
+          "user/getuser/" +
+          advertisement.seller +
+          "/"
+      );
+      console.log(response.data);
+      setSeller(response.data);
+    };
+    fetchSeller();
+  }, [advertisement.seller_id]);
   return (
     <div className="advert-container">
       <NavBar />
@@ -43,6 +59,12 @@ const CompleteAdvert = (advertisement) => {
       <h2 className="advert-details-title">Description</h2>{" "}
       {/* Advert description */}
       <div className="advert-description">{advertisement.description}</div>
+      {/* Seller contact information */}
+      <h2 className="advert-details-title">Seller</h2>
+      <div className="advert-description">
+        <p>Seller: {seller.username}</p>
+        <p>Email: {seller.email}</p>
+      </div>
     </div>
   );
 };

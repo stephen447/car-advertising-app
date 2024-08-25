@@ -37,11 +37,9 @@ export default function CreateAccountPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Get CSRF cookie
-      let csrfToken = getCookie("csrftoken");
       // Make request to login user
       await axios.post(
-        process.env.REACT_APP_API_BASE_URL + "users/register/",
+        process.env.REACT_APP_API_BASE_URL + "user/register/",
         {
           email: email,
           password: password,
@@ -50,7 +48,6 @@ export default function CreateAccountPage() {
         {
           headers: {
             "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken,
           },
           withCredentials: true,
         }

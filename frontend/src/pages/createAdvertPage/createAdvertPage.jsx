@@ -1,6 +1,7 @@
 import "./createAdvertPage.css";
 // CreateAdvertForm.js
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../components/navBar/navBar";
 import "../../components/dragNDrop/dragNDrop";
 import DragNDrop from "../../components/dragNDrop/dragNDrop";
@@ -22,6 +23,12 @@ function getCookie(name) {
  * @returns
  */
 const CreateAdvertPage = () => {
+  const navigate = useNavigate();
+  // If user is not logged in, redirect to login page
+  if (!localStorage.getItem("profileInfo")) {
+    navigate("/signin");
+  }
+
   // Form data
   const [manufacturerOptions, setManufacturerOptions] = useState([]);
   const [modelOptions, setModelOptions] = useState([]);
