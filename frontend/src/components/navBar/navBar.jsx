@@ -5,17 +5,6 @@ import image from "../../media/images/car-icon.png";
 import { apiRequest } from "../../request";
 
 /**
- * This function retrieves a cookie
- * @param {string} name  - the name of the cookie which will be got
- * @returns returns the value of the cookie
- */
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-}
-
-/**
  * This functions retrieves the username of the user- if a user is logged in
  * @returns the username of the user
  */
@@ -60,24 +49,26 @@ export default function NavBar() {
 
   return (
     <>
-      <nav className="navbar">
-        <div className="navbar__container">
+      <nav className="navbar__container">
+        <div className="navbar__button">
           <Link to="/home">
-            <img className="home__image" src={image}></img>
+            <img className="home__image" src={image} alt="Home"></img>
           </Link>
         </div>
-        <div className="navbar__container">
+        <div className="navbar__button">
           <Link to="/search">Buy</Link>
         </div>
-        <div className="navbar__container">
+        <div className="navbar__button">
           <Link to="/placeadvert">Sell</Link>
         </div>
-        <div className="navbar__container">
+        <div className="navbar__button">
           <Link to="/signin">Sign-In</Link>
         </div>
-        <div className="navbar__container">
-          <Link to="/profile">{username}</Link>
-        </div>
+        {username && (
+          <div className="navbar__button">
+            <Link to="/profile">Profile</Link>
+          </div>
+        )}
       </nav>
     </>
   );

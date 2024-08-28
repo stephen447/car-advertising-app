@@ -1,3 +1,10 @@
+:root {
+    --primary-color: rgb(18, 224, 148);
+    --primary-color-light: rgb(18, 224, 148, 0.5);
+    --secondary-color: rgb(0, 74, 47);
+    --secondary-color-light: rgb(0, 74, 47, 0.5);
+    --secondary-color-dark: rgb(0, 46, 29);
+  }
 .App{
     width: 100%;
 }
