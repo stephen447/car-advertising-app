@@ -17,12 +17,14 @@
   }
   .advert-details{
     display: flex;
+    display: flex;
+    align-items: center; /* Vertically centers the items */
+    justify-content: space-between; /* Distributes space evenly between items */
+
     width: 90%;
-    justify-content: center;
     background-color: rgb(0, 61, 39);
     margin: 5%;
     border-radius: 10px;
-
     
   }
   .complete-advert__header{
@@ -31,6 +33,11 @@
   }
   .advert-detail{
     width: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 1.5em;
 
   }
 
@@ -48,4 +55,8 @@
   .advert-picture{
     text-align: center;
 
+  }
+  .complete-advert__image--icon{
+    width: 5%;
+    max-width: 20%;
   }
