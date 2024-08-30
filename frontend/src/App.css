@@ -4,7 +4,29 @@
     --secondary-color: rgb(0, 74, 47);
     --secondary-color-light: rgb(0, 74, 47, 0.5);
     --secondary-color-dark: rgb(0, 46, 29);
+    --dimmed-background: rgba(0, 0, 0, 0.138);
+    --dimmed-background-dark: rgba(0, 0, 0, 0.4);
+    --border-radius-medium: 10px;
+    --border-radius-small: 5px;
   }
 .App{
     width: 100%;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:invalid {
+    border-color: red;
+  }
+input:focus{
+    outline: var(--primary-color) auto 5px;
+}
+select:invalid {
+  border-color: red;
+}
+select:focus{
+  outline: var(--primary-color) auto 5px;
 }
