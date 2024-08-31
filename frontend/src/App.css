@@ -13,6 +13,12 @@ html {
     font-size: 10px; /* Even smaller base font size for mobile */
   }
 }
+
+@media (max-width: 250px) {
+  html {
+    font-size: 7px; /* Even smaller base font size for mobile */
+  }
+}
 :root {
     --primary-color: rgb(18, 224, 148);
     --primary-color-light: rgb(18, 224, 148, 0.5);

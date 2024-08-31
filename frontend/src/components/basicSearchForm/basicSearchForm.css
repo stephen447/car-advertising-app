@@ -42,6 +42,7 @@
     font-size: 1.2rem;
     width: 30%;
     margin: 3%;
+    min-width: fit-content;
 }
 
 /* Modifier: submit-button on hover */
