@@ -25,7 +25,7 @@
     text-align: center;
     outline-color: invert;
     border-radius: var(--border-radius-small);
-    font-size: 1rem;
+    font-size: 0.9rem;
     min-width: fit-content;
     width: 30%;
     margin: 3%;

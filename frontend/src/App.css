@@ -1,3 +1,18 @@
+html {
+  font-size: 16px; /* Default for desktop */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px; /* Smaller base font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 10px; /* Even smaller base font size for mobile */
+  }
+}
 :root {
     --primary-color: rgb(18, 224, 148);
     --primary-color-light: rgb(18, 224, 148, 0.5);
@@ -12,6 +27,8 @@
 .App{
     width: 100%;
 }
+
+
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

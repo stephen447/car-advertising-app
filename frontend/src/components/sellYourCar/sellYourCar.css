@@ -1,29 +1,38 @@
-.sellYourCar{
-    background-color: rgb(18, 224, 148);
-    color:rgb(0, 74, 47);
+
+.sell-your-car {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     display: flex;
-    border-radius: 10px;
-    width: 90%;
-    margin: 0 auto;  /* This centers the div horizontally */
+    border-radius: var(--border-radius-medium);
+    width: 70%;
+    margin: 0 auto; 
 }
-.sellYourCarImage{
+
+.sell-your-car__image {
     width: 30%;
+    height: auto;
     margin: 10%;
-    border-radius: 10px;
 }
-.sellYourCarText{
+
+.sell-your-car__text {
     margin: auto;
     text-align: center;
 }
-.sellYourCarButton{
-    border-color: rgba(240, 248, 255, 0);
+
+.sell-your-car__button {
     color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.138);
+    background-color: var(--dimmed-background);
     text-align: center;
-    outline-color: invert;
-    border-radius: 5px;
-    padding: 6%;
+    border-radius: var(--border-radius-small);
+    border: none;
+    padding: 7%;
+    width: fit-content;
+    margin-bottom: 5%;
+    margin-right: 5%;
+    font-size: 1.2rem;
+
 }
-.sellYourCarButton:hover{
-    background-color: rgba(0, 0, 0, 0.397);
+
+.sell-your-car__button:hover {
+    background-color: var(--dimmed-background-dark);
 }

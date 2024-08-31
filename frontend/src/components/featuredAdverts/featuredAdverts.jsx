@@ -7,6 +7,7 @@ import axios from "axios";
 export default function FeaturedAdverts() {
   // Need to send a request to the back end to generate the featured ads - returns json - manufacturer, model, year, model, mileage, main picture, link to the actual advert
   // then create a map of 10 featured ads.
+
   /**
    * Send a request to the backend to get the featured adverts
    */
