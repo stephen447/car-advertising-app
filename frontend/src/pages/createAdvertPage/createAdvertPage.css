@@ -1,43 +1,45 @@
 .createAdvertForm{
     text-align: center;
 }
-.createAdvertForm__inputDiv{
-}
 .createAdvertForm__inputDiv select{
-    border-color: rgba(240, 248, 255, 0);
-    color: rgb(18, 224, 148);
-    background-color: rgba(0, 0, 0, 0.138);
+    border-color: none;
+    color: var(--primary-color);
+    background-color: var(--dimmed-background);
     text-align: center;
-    outline-color: invert;
-    border-radius: 5px;
+    border-radius: var(--border-radius-small);
     width: 30%;
     margin: 3%;
 }
 .createAdvertForm__inputDiv input{
-    border-color: rgba(240, 248, 255, 0);
+    border: none;
     display: inline-block;
-    background-color: rgba(0, 0, 0, 0.138);
-    color: rgb(18, 224, 148);
+    background-color: var(--dimmed-background);
+    color: var(--primary-color);
     text-align: center;
     outline-color: invert;
-    border-radius: 5px;
+    border-radius: var(--border-radius-small);
     width: 30%;
     margin: 3%;
 }
 .createAdvertForm__inputDiv label{
     display: inline-block;
     text-align: center;
-    width: 20%;
-    padding: 20px;
+    width: fit-content;
     box-sizing: border-box;
 }
+.createAdvertForm__inputDiv{
+    min-width: fit-content;
+}
 .createAdvertForm__button{
-    border-color: rgba(240, 248, 255, 0);
-    color: rgb(18, 224, 148);
-    background-color: rgba(0, 0, 0, 0.138);
+    border: none;
+    color: var(--primary-color);
+    background-color: var(--dimmed-background);
     text-align: center;
     outline-color: invert;
-    border-radius: 5px;
+    border-radius: var(--border-radius-small);
+    padding: 1%;
+    font-size: 1.2rem;
     width: 30%;
     margin: 3%;
+    min-width: fit-content;
 }

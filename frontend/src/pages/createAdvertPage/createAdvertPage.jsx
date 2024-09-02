@@ -310,9 +310,9 @@ const CreateAdvertPage = () => {
             required
           />
         </div>
-        <div>
+        <>
           <input type="file" multiple onChange={handleImageChange} />
-        </div>
+        </>
         <DragNDrop />
 
         <button className="createAdvertForm__button" type="submit">
