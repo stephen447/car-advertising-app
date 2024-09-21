@@ -24,7 +24,7 @@ html {
     --primary-color-light: rgb(18, 224, 148, 0.5);
     --secondary-color: rgb(0, 74, 47);
     --secondary-color-light: rgb(0, 74, 47, 0.5);
-    --secondary-color-dark: rgb(0, 46, 29);
+    --secondary-color-dark: rgb(0, 61, 39);
     --dimmed-background: rgba(0, 0, 0, 0.138);
     --dimmed-background-dark: rgba(0, 0, 0, 0.4);
     --border-radius-medium: 10px;
@@ -33,7 +33,10 @@ html {
 .App{
     width: 100%;
 }
+.basic-advert__p--price{
+    font-size: 1.25rem;
 
+}
 
 
 input::-webkit-outer-spin-button,

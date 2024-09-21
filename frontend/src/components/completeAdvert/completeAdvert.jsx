@@ -7,6 +7,8 @@ import mileage from "../../media/images/mileage.svg";
 import transmission from "../../media/images/transmission.svg";
 import age from "../../media/images/age.svg";
 import engine from "../../media/images/engine.svg";
+import emailIcon from "../../media/images/email.svg";
+import personIcon from "../../media/images/person.svg";
 
 const CompleteAdvert = (advertisement) => {
   advertisement = advertisement.advertisement;
@@ -26,64 +28,69 @@ const CompleteAdvert = (advertisement) => {
     fetchSeller();
   }, [advertisement.seller_id]);
   return (
-    <div className="advert-container">
+    <div className="advert">
       <NavBar />
-      <div className="advert-title">
-        {" "}
-        {/* Advert title*/}
-        <button
-          className="backButton complete-advert__button--back"
-          onClick={() => window.history.back()}
-        >
+      <div className="advert__title">
+        <button className="backButton" onClick={() => window.history.back()}>
           Back
         </button>
-        <h1 className="complete-advert__header">
+        <h1 className="advert__header">
           {advertisement.make} {advertisement.model} ({advertisement.year})
         </h1>
-        <h1 className="advert-price">
+        <h1 className="advert__price">
           €{Math.round(advertisement.price).toLocaleString()}
         </h1>
       </div>
-      <div className="advert-picture">
+      <div className="advert__picture">
         {advertisement.images.length > 0 ? (
-          // Render content if there are more than 1 images
           <ImageSlider images={advertisement.images} />
         ) : (
-          // Render alternative content if there is only 1 or no image
-          <div>{/* Your alternative content here */}</div>
+          <div>{/* Alternative content here */}</div>
         )}
       </div>
-      <h2 className="advert-details-title">Details</h2> {/* Advert details */}
-      <div className="advert-details">
-        <img
-          className="complete-advert__image--icon"
-          src={engine}
-          alt="Engine"
-        />
-        <p className="advert-detail">{advertisement.fuel_type}</p>
-        <img
-          className="complete-advert__image--icon"
-          src={mileage}
-          alt="Mileage"
-        />
-        <p className="advert-detail">{advertisement.mileage} km</p>
-        <img
-          src={transmission}
-          className="complete-advert__image--icon"
-          alt="Transmission"
-        />{" "}
-        <p className="advert-detail">{advertisement.transmission}</p>
-        <img className="complete-advert__image--icon" src={age} alt="Year" />
-        <p className="advert-detail">{advertisement.year}</p>
+      <h1 className="advert__details-title">Details</h1>
+      <div className="advert__details">
+        <div className="advert__details-item">
+          <img className="advert__details-image" src={engine} alt="Engine" />
+          <p className="advert__details-text">{advertisement.fuel_type}</p>
+        </div>
+        <div className="advert__details-item">
+          <img className="advert__details-image" src={mileage} alt="Mileage" />
+          <p className="advert__details-text">{advertisement.mileage} km</p>
+        </div>
+        <div className="advert__details-item">
+          <img
+            className="advert__details-image"
+            src={transmission}
+            alt="Transmission"
+          />
+          <p className="advert__details-text">{advertisement.transmission}</p>
+        </div>
+        <div className="advert__details-item">
+          <img className="advert__details-image" src={age} alt="Year" />
+          <p className="advert__details-text">{advertisement.year}</p>
+        </div>
       </div>
-      <h2 className="advert-details-title">Description</h2>{" "}
-      {/* Advert description */}
-      <div className="advert-description">{advertisement.description}</div>
-      {/* Seller contact information */}
-      <h2 className="advert-details-title">Seller</h2>
-      <div className="advert-description">
-        <p>Seller: {seller.username}</p>
-        <p>Email: {seller.email}</p>
+      <h1 className="advert__details-title">Description</h1>
+      <div className="advert__description">{advertisement.description}</div>
+      <h1 className="advert__details-title">Seller</h1>
+      <div className="advert__details">
+        <div className="advert__details-item">
+          <img className="advert__details-image" src={emailIcon} alt="Email" />
+          <p className="advert__details-text">
+            <a href={`mailto:${seller.email}`} className="advert__details-link">
+              {seller.email}
+            </a>
+          </p>
+        </div>
+        <div className="advert__details-item">
+          <img
+            className="advert__details-image"
+            src={personIcon}
+            alt="Seller"
+          />
+          <p className="advert__details-text">{seller.username}</p>
+        </div>
       </div>
     </div>
   );

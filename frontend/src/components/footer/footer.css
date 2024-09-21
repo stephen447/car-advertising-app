@@ -1,7 +1,37 @@
 .footer{
     display: flex;
+    margin-top: 1%;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+.footer__header{
+    width: 100%;
+    text-align: center;
+    margin: 5%;
 }
 .footer__column{
     width: 50%;
     text-align: center;
+    
+}
+.social{
+    display: flex;
+    border-radius: 20px; 
+    text-align: center;
+    margin: 5%;
+}
+.socialElement{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.socialIcons:hover{
+    scale: 110%;
+}
+.socialIcons{
+    width: 50%;
+    margin: 7%;
 }

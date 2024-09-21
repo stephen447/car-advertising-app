@@ -1,0 +1,13 @@
+.fileUpload__button--upload{
+    border: none;
+    color: var(--primary-color);
+    background-color: var(--dimmed-background);
+    text-align: center;
+    outline-color: invert;
+    border-radius: var(--border-radius-small);
+    padding: 1%;
+    font-size: 1.2rem;
+    width: 30%;
+    margin: 3%;
+    min-width: fit-content;
+}

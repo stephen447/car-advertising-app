@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./basicAdvert.css"; // CSS file
+import mileageIcon from "../../media/images/mileageDark.svg";
+import transmission from "../../media/images/transmission.svg";
+import age from "../../media/images/ageDark.svg";
+import engine from "../../media/images/engine.svg";
+import "./basicAdvert.css";
 import axios from "axios";
+import colorIcon from "../../media/images/color.svg";
 
 const BasicAdvert = ({
   manufacturer,
@@ -37,16 +42,28 @@ const BasicAdvert = ({
         {" "}
         {/* Basic details */}
         <h2>
-          {manufacturer} {model} ({year})
+          {manufacturer} {model}
         </h2>
-        <p>
-          <strong>Mileage:</strong> {mileage}
-        </p>
-        <p>
-          <strong>Color:</strong> {color}
-        </p>
-        <p>
-          <strong>Price:</strong> ${price}
+        <div className="advert-detail__container">
+          <img className="basic-advert-detail__image" src={age} alt="Year" />
+          <p className="basic-advert-detail__text">{year}</p>
+          <img
+            className="basic-advert-detail__image"
+            src={mileageIcon}
+            alt="Mileage"
+          />
+          <p className="basic-advert-detail__text">{mileage} km</p>
+        </div>
+        <div className="advert-detail__container">
+          <img
+            className="basic-advert-detail__image"
+            src={colorIcon}
+            alt="Color"
+          />
+          <p className="basic-advert-detail__text">{color}</p>
+        </div>
+        <p className="basic-advert__p--price">
+          €{Math.round(price).toLocaleString()}
         </p>
         <div>
           {coverPhoto ? (

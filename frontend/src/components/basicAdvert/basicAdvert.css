@@ -1,9 +1,58 @@
 .carAdvertisement{
-    background-color: rgb(18, 224, 148);
-    color: rgb(0, 74, 47);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
     text-align: center;
     width: 60%;
     border-radius: 10px;
     align-self: center;
     margin: auto;
+}
+.carAdvertLink{
+    color: var(--secondary-color);
+    text-decoration: none;
+}
+
+.advert-detail__container {
+    display: flex;
+    justify-content: center;
+}
+
+.basic-advert-detail__image {
+    margin-right: 10px; /* Space between image and text */
+    width: 5%; /* Adjust the width as needed */
+    height: auto;
+}
+
+.basic-advert-detail__text {
+    font-size: 1rem; /* Adjust font size as needed */
+    color: var(--secondary-color); /* Use your primary color variable */
+    margin-right: 2%;
+}
+/* HTML: <div class="loader"></div> */
+/* Parent container to center the loader */
+.loader-container {
+    display: flex;
+    justify-content: center; /* Centers the loader horizontally */
+    align-items: center;     /* Centers the loader vertically */
+    height: 100vh;           /* Makes the container full height of the viewport */
+}
+
+/* Loader styles */
+.loader {
+    width: fit-content;
+    font-weight: bold;
+    font-family: monospace;
+    font-size: 30px;
+    clip-path: inset(0 3ch 0 0);
+    animation: l4 1s steps(4) infinite;
+    text-align: center;
+    align-self: center;
+}
+
+.loader:before {
+    content: "Loading...";
+}
+
+@keyframes l4 {
+    to { clip-path: inset(0 -1ch 0 0); }
 }
