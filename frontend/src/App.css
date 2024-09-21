@@ -1,3 +1,58 @@
+html {
+  font-size: 16px; /* Default for desktop */
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 13px; /* Smaller base font size for tablets */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 10px; /* Even smaller base font size for mobile */
+  }
+}
+
+@media (max-width: 250px) {
+  html {
+    font-size: 7px; /* Even smaller base font size for mobile */
+  }
+}
+:root {
+    --primary-color: rgb(18, 224, 148);
+    --primary-color-light: rgb(18, 224, 148, 0.5);
+    --secondary-color: rgb(0, 74, 47);
+    --secondary-color-light: rgb(0, 74, 47, 0.5);
+    --secondary-color-dark: rgb(0, 61, 39);
+    --dimmed-background: rgba(0, 0, 0, 0.138);
+    --dimmed-background-dark: rgba(0, 0, 0, 0.4);
+    --border-radius-medium: 10px;
+    --border-radius-small: 5px;
+  }
 .App{
     width: 100%;
+}
+.basic-advert__p--price{
+    font-size: 1.25rem;
+
+}
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input:invalid {
+    border-color: red;
+  }
+input:focus{
+    outline: var(--primary-color) auto 5px;
+}
+select:invalid {
+  border-color: red;
+}
+select:focus{
+  outline: var(--primary-color) auto 5px;
 }

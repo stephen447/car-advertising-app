@@ -13,7 +13,7 @@ const CreateAccountFormElement = ({
       <label htmlFor={id}>{label}:</label>
       <input
         id={id}
-        className="input"
+        className="sign-in__input"
         type={type}
         value={value}
         onChange={onChange}

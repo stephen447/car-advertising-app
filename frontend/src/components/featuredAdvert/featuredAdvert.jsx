@@ -18,6 +18,9 @@ export default function FeaturedAdvert(props) {
         console.error("Error getting cover photo:", response);
         return;
       }
+      if (response.data == "No cover photo found") {
+        return;
+      }
       setCoverPhoto(response.data);
     } catch (error) {
       console.error("Error getting cover photo:", error);

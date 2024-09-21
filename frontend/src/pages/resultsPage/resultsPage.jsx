@@ -36,7 +36,11 @@ const ResultsPage = () => {
   return (
     <div>
       <NavBar />
-      <h1>Search Results</h1>
+      <div className="resultsPage__container--header">
+        <BackButton />
+        <h1 className="header">Search Results</h1>
+      </div>
+
       {results.length === 0 ? (
         <div className="noResultsContainer">
           <h2>No search results found.</h2>
@@ -44,6 +48,7 @@ const ResultsPage = () => {
         </div>
       ) : (
         // Display search results
+
         results.map((result) => (
           <BasicAdvert
             manufacturer={result.make}

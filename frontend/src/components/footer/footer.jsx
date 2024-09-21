@@ -1,33 +1,36 @@
 import React from "react";
-import "./footer.css"; // CSS file
+import "./footer.css";
+import email from "../../media/images/footer-email.svg";
+import linkedIn from "../../media/images/linkedIn.svg";
+import github from "../../media/images/github.svg";
 
 export default function Footer() {
   return (
     <div className="footer">
-      <div className="footer__column">
-        {" "}
-        {/* Left column */}
-        <div className="footer__name+logo">
-          <h2>Car Change</h2>
-          <img></img>
-        </div>
-        <div className="footer__socials">
-          <img></img>
-          <img></img>
-          <img></img>
-        </div>
-        <p>Phone: 0838128391</p>
-        <p>Email: sdavidbyrne@gmail.com</p>
+      <h2 className="footer__header">Car Change</h2>
+      <div className="socialElement">
+        <a href="mailto: sdavidbyrne@gmail.com">
+          {" "}
+          <img alt="" className="socialIcons" src={email} />
+        </a>
       </div>
-
-      <div className="footer__column">
-        {/*Right column*/}
-        <h2>Information</h2>
-        <p>Ask us a question</p>
-        <p>Careers</p>
-        <p>Privacy Policy</p>
-        <p>Cookie Policy</p>
-        <p>Terms&Conditions</p>
+      <div className="socialElement">
+        <a
+          href="https://www.linkedin.com/in/stephen-byrne-b4729321b/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="socialIcons" alt="" src={linkedIn} />
+        </a>
+      </div>
+      <div className="socialElement">
+        <a
+          href="https://github.com/stephen447"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <img className="socialIcons" alt="" src={github} />
+        </a>
       </div>
     </div>
   );

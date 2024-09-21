@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
 export default function AdvancedSearchForm() {
-  const x = process.env.REACT_APP_API_BASE_URL;
   const navigate = useNavigate(); // Use useNavigate to redirect to a new page
   // State variables
   // Options for the manufacturers and models in the form
@@ -155,23 +154,23 @@ export default function AdvancedSearchForm() {
   };
 
   return (
-    <div className="basicSearchForm">
+    <div className="basic-search-form">
       <h1>Search for cars for sale</h1> {/* Header */}
-      <form onSubmit={handleSubmit} className="basicSearchForm">
+      <form onSubmit={handleSubmit} className="basic-search-form__form">
         {/* Form */}
 
-        <div className="basicSearchForm__selectGroup">
+        <div className="basic-search-form__select-group">
           {" "}
           {/* Select Group for the manufacturer and model select options*/}
           <select
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             onChange={handleManufacturerChange}
           >
             <option value="">Select a Manufacturer</option>
             {ManufacturerOptions.map(makeOption)}
           </select>
           <select
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             disabled={disableModelOptions}
             onChange={handleModelChange}
           >
@@ -180,11 +179,11 @@ export default function AdvancedSearchForm() {
           </select>
         </div>
 
-        <div className="basicSearchForm__selectGroup">
+        <div className="basic-search-form__select-group">
           {/* Select Group for the minimum and maximum year select options*/}
           <input
             type="number"
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             min="1900"
             max="2023"
             onChange={(e) => setMinYear(e.target.value)}
@@ -192,7 +191,7 @@ export default function AdvancedSearchForm() {
           />
           <input
             type="number"
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             min="1900"
             max="2023"
             onChange={(e) => setMaxYear(e.target.value)}
@@ -200,11 +199,11 @@ export default function AdvancedSearchForm() {
           />
         </div>
 
-        <div className="basicSearchForm__selectGroup">
+        <div className="basic-search-form__select-group">
           {/* Select Group for the minimum and maximum price select options*/}
           <input
             type="number"
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             min="0"
             max="999999"
             onChange={(e) => setMinPrice(e.target.value)}
@@ -212,7 +211,7 @@ export default function AdvancedSearchForm() {
           />
           <input
             type="number"
-            className="basicSearchForm__formSelect"
+            className="basic-search-form__form-select"
             min="0"
             max="999999"
             onChange={(e) => setMaxPrice(e.target.value)}
@@ -220,9 +219,9 @@ export default function AdvancedSearchForm() {
           />
         </div>
 
-        <div className="selectGroup">
+        <div className="basic-search-form__select-group">
           <button
-            className="submitButton"
+            className="basic-search-form__submit-button"
             type="button"
             onClick={toggleAdvancedOptions}
           >
@@ -231,35 +230,36 @@ export default function AdvancedSearchForm() {
               : "Show Advanced Options"}
           </button>
         </div>
+
         {showAdvancedOptions && (
-          <div className="advancedOptions">
+          <div className="basic-search-form__advanced-options">
             {/* Add your advanced search options here */}
-            <div className="selectGroup">
+            <div className="basic-search-form__select-group">
               <select
-                className="formSelect"
+                className="basic-search-form__form-select"
                 onChange={(e) => setTransmission(e.target.value)}
               >
                 <option value="">Select a Transmission</option>
                 {transmissionOptions.map(makeOption)}
               </select>
               <select
-                className="formSelect"
+                className="basic-search-form__form-select"
                 onChange={(e) => setColor(e.target.value)}
               >
                 <option value="">Select a Color</option>
                 {colorOptions.map(makeOption)}
               </select>
             </div>
-            <div className="selectGroup">
+            <div className="basic-search-form__select-group">
               <select
-                className="formSelect"
+                className="basic-search-form__form-select"
                 onChange={(e) => setFuel(e.target.value)}
               >
                 <option value="">Select a Fuel Type</option>
                 {fuelTypeOptions.map(makeOption)}
               </select>
               <select
-                className="formSelect"
+                className="basic-search-form__form-select"
                 onChange={(e) => setCondition(e.target.value)}
               >
                 <option value="">Select a Condition</option>
@@ -268,9 +268,10 @@ export default function AdvancedSearchForm() {
             </div>
           </div>
         )}
-        <div className="basicSearchForm__selectGroup">
+
+        <div className="basic-search-form__select-group">
           {/* Submit button*/}
-          <button className="basicSearchForm__submitButton" type="submit">
+          <button className="basic-search-form__submit-button" type="submit">
             Search
           </button>
         </div>

@@ -8,7 +8,7 @@ import Footer from "../../components/footer/footer";
 import "./homePage.css";
 const HomePage = () => {
   return (
-    <div className="homePage">
+    <div>
       <NavBar></NavBar>
       <BasicSearchForm></BasicSearchForm>
       <FeaturedAdverts></FeaturedAdverts>

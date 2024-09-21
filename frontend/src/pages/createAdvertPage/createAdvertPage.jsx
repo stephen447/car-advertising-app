@@ -6,17 +6,7 @@ import NavBar from "../../components/navBar/navBar";
 import "../../components/dragNDrop/dragNDrop";
 import DragNDrop from "../../components/dragNDrop/dragNDrop";
 import { apiRequest } from "../../request";
-
-/**
- *
- * @param {String} name - this function
- * @returns
- */
-function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(";").shift();
-}
+import FileUpload from "../../components/fileUpload/fileUpload";
 
 /**
  *
@@ -68,9 +58,11 @@ const CreateAdvertPage = () => {
     "Other",
   ];
   const conditionOptions = ["New", "Used"];
+  const [selectedFiles, setSelectedFiles] = useState(null);
 
   const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
+    setSelectedFiles(files);
     setFormData({ ...formData, images: files });
   };
 
@@ -310,9 +302,12 @@ const CreateAdvertPage = () => {
             required
           />
         </div>
-        <div>
-          <input type="file" multiple onChange={handleImageChange} />
-        </div>
+        <>
+          <FileUpload
+            handleImageChange={handleImageChange}
+            selectedFiles={selectedFiles}
+          />
+        </>
         <DragNDrop />
 
         <button className="createAdvertForm__button" type="submit">

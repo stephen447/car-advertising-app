@@ -1,41 +1,66 @@
-.input{
-    background-color: rgb(18, 224, 148);
+.sign-in__input {
+    background-color: var(--dimmed-background);
+    min-height: fit-content;
     width: 15%;
+    max-width: fit-content;
     display: inline-block;
-    margin:1%;
-    border: 0px;
-    border-radius: 5px;
-    color:rgb(0, 74, 47);
+    margin: 1%;
+    border: none;
+    border-radius: var(--border-radius-small);
+    color: var(--primary-color);
     padding: 1%;
 }
-.signIn{
+
+.sign-in {
     text-align: center;
 }
-.label{
-    width: 15%;
+
+.sign-in__label {
+    width: fit-content;
     display: inline-block;
-    margin:1%;
-    
+
 }
-.signInButton{
-    background-color: rgb(18, 224, 148);
-    color:rgb(0, 74, 47);
-    padding:1%;
+
+.sign-in__button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1%;
     border: 0px;
     border-radius: 5px;
     width: 15%;
+    min-width: fit-content;
     display: inline-block;
 }
 
-.signInButton:hover{
+.sign-in__button:hover {
     background-color: rgba(18, 224, 148, 0.656);
-    color:rgb(0, 74, 47);
-    
+    color: rgb(0, 74, 47);
 }
-.register{
-    margin:10%;
+
+.sign-in__error {
+    color: red;
+}
+
+.register {
+    margin: 10%;
     background-color: rgba(18, 224, 148, 0.656);
-    color:rgb(0, 74, 47);
+    color: rgb(0, 74, 47);
     padding: 2%;
     border-radius: 10px;
+}
+
+.register__button {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 1%;
+    border: 0px;
+    border-radius: 5px;
+    width: 15%;
+    min-width: fit-content;
+    display: inline-block;
+}
+
+.register__button:hover {
+    background-color: rgba(18, 224, 148, 0.656);
+    color: rgb(0, 74, 47);
 }

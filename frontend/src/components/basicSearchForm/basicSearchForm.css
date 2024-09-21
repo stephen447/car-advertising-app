@@ -1,38 +1,51 @@
-.basicSearchForm{
+/* Block: basic-search-form */
+.basic-search-form {
     background-color: rgb(18, 224, 148);
-    color:rgb(0, 74, 47);
+    color: rgb(0, 74, 47);
     text-align: center;
-    padding: 5%;
-    border-radius: 10px;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: var(--border-radius-medium);
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 2%;
 }
 
-.basicSearchForm__selectGroup{
+/* Element: select-group within basic-search-form */
+.basic-search-form__select-group {
     width: 100%;
 }
-.basicSearchForm__formSelect {
+
+/* Element: form-select within basic-search-form */
+.basic-search-form__form-select {
     border-color: rgba(240, 248, 255, 0);
     color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.138);
+    background-color: var(--dimmed-background);
     text-align: center;
     outline-color: invert;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: var(--border-radius-small);
+    font-size: 0.9rem;
+    min-width: fit-content;
     width: 30%;
     margin: 3%;
 }
-.basicSearchForm__submitButton{
+
+/* Element: submit-button within basic-search-form */
+.basic-search-form__submit-button {
     border-color: rgba(240, 248, 255, 0);
     color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.138);
+    background-color: var(--dimmed-background);
     text-align: center;
     outline-color: invert;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1.2rem;
     width: 30%;
     margin: 3%;
-}
-.basicSearchForm__submitButton:hover{
-    background-color: rgba(0, 0, 0, 0.397);;
+    min-width: fit-content;
 }
 
-
+/* Modifier: submit-button on hover */
+.basic-search-form__submit-button:hover {
+    background-color: var(--dimmed-background-dark);
+}

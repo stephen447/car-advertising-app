@@ -1,62 +1,80 @@
-.advert-container {
-    justify-content: space-between; /* Align items with space between them */
-  }
-  
-  .advert-title {
-    display: flex; /* Nested flex container */
-    align-items: center; /* Align items vertically */
-    width: 100%;
-  }
-  .complete-advert__button--back{
-    max-width: 10%;
-  }
-  
-  .advert-price {
-    margin-left: auto; /* Push the advert price to the right */
-    margin-right:5%
-  }
-  .advert-details{
-    display: flex;
-    display: flex;
-    align-items: center; /* Vertically centers the items */
-    justify-content: space-between; /* Distributes space evenly between items */
+.advert {
+  justify-content: space-between;
+}
 
-    width: 90%;
-    background-color: rgb(0, 61, 39);
-    margin: 5%;
-    border-radius: 10px;
-    
-  }
-  .complete-advert__header{
-    text-align: center;
-    justify-content: center;
-  }
-  .advert-detail{
-    width: 20%;
-    padding-left: 5%;
-    padding-right: 5%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-size: 1.5em;
+.advert__title {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
 
-  }
+.advert__button--back {
+  max-width: 10%;
+}
 
-  .advert-details-title{
-    text-align: center;
-  }
-  .advert-description{
-    width: 84%;
-    background-color: rgb(0, 61, 39);
-    margin: 5%;
-    border-radius: 10px;
-    text-align: center;
-    padding: 3%;
-  }
-  .advert-picture{
-    text-align: center;
+.advert__price {
+  margin-left: auto;
+  margin-right: 5%;
+}
 
-  }
-  .complete-advert__image--icon{
-    width: 5%;
-    max-width: 20%;
-  }
+.advert__details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-left: 5%;
+  border-radius: var(--border-radius-medium);
+  padding: 10px;
+  background-color: var(--secondary-color-dark);
+}
+
+.advert__details-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+}
+
+.advert__details-image {
+  width: 50px;
+  height: auto;
+  margin-bottom: 5px;
+}
+
+.advert__details-text {
+  font-size: 1rem;
+  color: var(--primary-color);
+}
+
+.advert__header {
+  text-align: center;
+  justify-content: center;
+}
+
+.advert__details-title {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.advert__description {
+  width: 84%;
+  background-color: rgb(0, 61, 39);
+  margin-left: 5%;
+  border-radius: 10px;
+  text-align: center;
+  padding: 3%;
+}
+
+.advert__picture {
+  text-align: center;
+}
+
+.advert__details-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.advert__details-link:hover {
+  text-decoration: underline;
+}

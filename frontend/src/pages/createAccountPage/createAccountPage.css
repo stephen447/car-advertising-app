@@ -1,17 +1,25 @@
-
-.form-group{
+/* Center alignment for form groups */
+.create-account__form-group {
     text-align: center;
 }
-.registerButton:hover{
+
+/* Hover effect for the register button */
+.create-account__register-button:hover {
     color: rgb(18, 224, 148);
 }
-.registerButtonHolder{
+
+/* Center alignment for the button holder */
+.create-account__button-holder {
     text-align: center;
 }
-label{
- min-width: 150px;
- display: inline-block;
+
+/* Styling for labels within the form */
+.create-account__form label {
+    min-width: 150px;
+    display: inline-block;
 }
-.registerPageTitle{
+
+/* Center alignment for the register page title */
+.create-account__title {
     text-align: center;
 }

@@ -1,14 +1,14 @@
 .individualFeaturedAdvert{
-    background-color: rgb(18, 224, 148);
-    color:rgb(0, 74, 47);
+    background-color: var(--primary-color);
+    color:var(--secondary-color);
     text-align: center;
-    
-    border-radius: 10px;
+    border-radius: var(--border-radius-medium);
     margin: 3%;
     flex: 30%;
     cursor: pointer;
 }
 .individualFeaturedAdvert_image{
     width: 80%;
-    border-radius: 10px;
+    height: auto;
+    border-radius: var(--border-radius-medium);
 }
